@@ -39,6 +39,13 @@ groups:
       - id: INFLUXDB_ADMIN_PASSWORD
         label: Admin Password
         type: password
-        default: changeme
+        default: halos
         required: true
         description: Password for the administrator account (change immediately after first login)
+
+      - id: INFLUXDB_ADMIN_TOKEN
+        label: Admin API Token
+        type: password
+        default: halos-default-token-change-in-production
+        required: true
+        description: Admin token for API access (change immediately after first login)

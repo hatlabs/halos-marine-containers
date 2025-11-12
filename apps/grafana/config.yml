@@ -28,6 +28,6 @@ groups:
       - id: GRAFANA_ADMIN_PASSWORD
         label: Admin Password
         type: password
-        default: admin
+        default: halos
         required: true
         description: Password for the administrator account (change immediately after first login)

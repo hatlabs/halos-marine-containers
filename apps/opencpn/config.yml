@@ -21,6 +21,6 @@ groups:
       - id: OPENCPN_VNC_PASSWORD
         label: VNC Password
         type: password
-        default: opencpn
+        default: halos
         required: true
         description: Password to access OpenCPN via VNC

@@ -36,4 +36,4 @@ web_ui:
   protocol: http
 default_config:
   OPENCPN_VNC_PORT: "8080"
-  OPENCPN_VNC_PASSWORD: opencpn
+  OPENCPN_VNC_PASSWORD: halos
