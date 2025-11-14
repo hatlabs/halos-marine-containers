@@ -5,7 +5,6 @@ description: |
   Includes chart plotters, data loggers, and marine-specific integrations.
 
 icon: /usr/share/container-stores/marine/icon.svg
-banner: /usr/share/container-stores/marine/banner.png
 
 filters:
   # Packages with marine tags (from any repo)
