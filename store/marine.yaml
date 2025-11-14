@@ -8,30 +8,12 @@ icon: /usr/share/container-stores/marine/icon.svg
 banner: /usr/share/container-stores/marine/banner.png
 
 filters:
-  # All packages from Hat Labs repository
-  include_origins:
-    - "Hat Labs"
-
-  # Standard Debian sections
-  include_sections:
-    - net
-    - web
-
   # Packages with marine tags (from any repo)
   include_tags:
     - field::marine
 
-  # Explicit additions (e.g., dependencies from Debian)
-  include_packages:
-    - influxdb-container
-    - grafana-container
-
 section_metadata:
-  net:
-    label: Navigation & Communication
+  navigation:
+    label: Navigation
     icon: anchor
-    description: Marine networking and communication services
-  web:
-    label: Web Services
-    icon: globe
-    description: Web-based dashboards and interfaces
+    description: Navigation and chart plotting applications
