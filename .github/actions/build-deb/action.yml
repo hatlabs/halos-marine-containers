@@ -1,0 +1,21 @@
+name: 'Build Debian Packages'
+description: 'Build all .deb packages (store + container apps)'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Install container-packaging-tools
+      shell: bash
+      run: |
+        # Download and install container-packaging-tools from GitHub releases
+        LATEST_RELEASE=$(curl -s https://api.github.com/repos/hatlabs/container-packaging-tools/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/')
+        curl -L -o container-packaging-tools.deb "https://github.com/hatlabs/container-packaging-tools/releases/latest/download/container-packaging-tools_${LATEST_RELEASE}_all.deb"
+        sudo dpkg -i container-packaging-tools.deb || sudo apt-get install -f -y
+        rm container-packaging-tools.deb
+
+    - name: Build packages
+      shell: bash
+      run: ./tools/build-all.sh
