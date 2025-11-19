@@ -38,7 +38,7 @@ jobs:
         run: |
           VERSION="${{ steps.version.outputs.version }}"
           REVISION="${{ steps.version.outputs.revision }}"
-          PRE_TAG="v${VERSION}+${REVISION}~pre"
+          PRE_TAG="v${VERSION}+${REVISION}_pre"
 
           echo "Creating pre-release: $PRE_TAG"
 
@@ -50,7 +50,7 @@ jobs:
 
           # Create pre-release (automatic, pre-release flag set)
           gh release create "$PRE_TAG" \
-            --title "v${VERSION}+${REVISION}~pre (Pre-release)" \
+            --title "v${VERSION}+${REVISION}_pre (Pre-release)" \
             --notes "Automatic pre-release for repository version ${VERSION}, revision ${REVISION}
 
           This is a development build automatically published to the unstable APT channel.
