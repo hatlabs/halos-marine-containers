@@ -279,9 +279,9 @@ class TestGitHubWorkflows:
         assert "calculate-revision.sh" in content, \
             "auto-release.yml should use calculate-revision.sh"
 
-        # Should use revision-based tag format with tilde for pre-release
-        assert "+${REVISION}~pre" in content or '+${REVISION}~pre' in content, \
-            "auto-release.yml should use +revision~pre tag format"
+        # Should use revision-based tag format with underscore for pre-release
+        assert "+${REVISION}_pre" in content or '+${REVISION}_pre' in content, \
+            "auto-release.yml should use +revision_pre tag format"
 
         # Should use revision-based tag format for stable
         assert "+${REVISION}" in content or '+${REVISION}' in content, \
