@@ -55,7 +55,7 @@ DATE=$(date -R)
 
 # Get recent changes from git log
 # Get commits since last published release tag
-LAST_TAG=$(git tag -l "v*" --sort=-version:refname | grep -v "~pre" | head -n1 || echo "")
+LAST_TAG=$(git tag -l "v*" --sort=-version:refname | grep -v "_pre" | head -n1 || echo "")
 
 if [ -n "$LAST_TAG" ]; then
     CHANGES=$(git log "${LAST_TAG}"..HEAD --pretty=format:"  * %s" --no-merges || echo "  * Build ${REVISION}")
