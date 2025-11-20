@@ -21,6 +21,7 @@ runs:
       shell: bash
       run: |
         docker run --rm \
+          -u $(id -u):$(id -g) \
           -v "$PWD:/workspace" \
           -w /workspace \
           marine-builder \
