@@ -36,7 +36,10 @@ if command -v generate-container-packages >/dev/null 2>&1; then
         if [ -d "$app_dir" ]; then
             app_name=$(basename "$app_dir")
             echo "Building package for: $app_name"
-            generate-container-packages -o "$BUILD_DIR" "$app_dir"
+            if ! generate-container-packages -o "$BUILD_DIR" "$app_dir"; then
+                echo "ERROR: Failed to build package for $app_name" >&2
+                exit 1
+            fi
         fi
     done
 else
