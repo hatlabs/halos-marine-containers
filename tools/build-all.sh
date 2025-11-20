@@ -32,7 +32,13 @@ rm -f marine-container-store_*.deb marine-container-store_*.buildinfo marine-con
 if command -v generate-container-packages >/dev/null 2>&1; then
     echo ""
     echo "=== Building container app packages ==="
-    generate-container-packages "${REPO_ROOT}/apps" "$BUILD_DIR"
+    for app_dir in "${REPO_ROOT}/apps"/*; do
+        if [ -d "$app_dir" ]; then
+            app_name=$(basename "$app_dir")
+            echo "Building package for: $app_name"
+            generate-container-packages -o "$BUILD_DIR" "$app_dir"
+        fi
+    done
 else
     echo ""
     echo "WARNING: container-packaging-tools not installed"
