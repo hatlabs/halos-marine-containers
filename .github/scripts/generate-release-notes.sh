@@ -31,7 +31,7 @@ fi
 case "$RELEASE_TYPE" in
   prerelease)
     cat > release_notes.md <<EOF
-## Cockpit APT v${TAG_VERSION} (Pre-release)
+## HaLOS Marine Containers v${TAG_VERSION} (Pre-release)
 
 ⚠️ **This is a pre-release build from the main branch. Use for testing only.**
 
@@ -56,7 +56,7 @@ echo "deb [signed-by=/usr/share/keyrings/hatlabs-apt-key.gpg] https://apt.hatlab
 
 # Update and install
 sudo apt update
-sudo apt install cockpit-apt
+sudo apt install marine-container-store
 \`\`\`
 
 EOF
@@ -64,9 +64,9 @@ EOF
 
   draft)
     cat > release_notes.md <<EOF
-## Cockpit APT v${VERSION}
+## HaLOS Marine Containers v${VERSION}
 
-Modern Cockpit interface for APT package management on Debian, inspired by Raspberry Pi's Add/Remove Software.
+Marine container store definition and curated marine application definitions.
 
 ### Changes
 
@@ -74,12 +74,11 @@ ${CHANGELOG}
 
 ### Features
 
-- Browse packages by Debian sections
-- Search for packages across all sections
-- View detailed package information
-- Install and remove packages with progress tracking
-- Dark mode support
-- Accessible interface with keyboard navigation
+- Marine container application store definition
+- Curated marine and sailing applications
+- Integration with Cockpit APT
+- Package definitions for Signal K, OpenCPN, Grafana, InfluxDB, AvNav
+- Automated container deployment via Debian packages
 
 ### Installation
 
@@ -88,17 +87,16 @@ This is the source code release. For Debian packages, see [apt.hatlabs.fi](https
 ### Development
 
 For development setup and build commands, see:
-- [README.md](https://github.com/hatlabs/cockpit-apt/blob/main/README.md) - Installation and usage
-- [CLAUDE.md](https://github.com/hatlabs/cockpit-apt/blob/main/CLAUDE.md) - Development guide
-- \`./run help\` - Available build and development commands
+- [README.md](https://github.com/hatlabs/halos-marine-containers/blob/main/README.md) - Installation and usage
+- [CLAUDE.md](https://github.com/hatlabs/halos-marine-containers/blob/main/CLAUDE.md) - Development guide
 EOF
     ;;
 
   stable)
     cat > release_notes.md <<EOF
-## Cockpit APT v${VERSION}
+## HaLOS Marine Containers v${VERSION}
 
-Modern Cockpit interface for APT package management on Debian, inspired by Raspberry Pi's Add/Remove Software.
+Marine container store definition and curated marine application definitions.
 
 ### Changes
 
@@ -106,12 +104,11 @@ ${CHANGELOG}
 
 ### Features
 
-- Browse packages by Debian sections
-- Search for packages across all sections
-- View detailed package information
-- Install and remove packages with progress tracking
-- Dark mode support
-- Accessible interface with keyboard navigation
+- Marine container application store definition
+- Curated marine and sailing applications
+- Integration with Cockpit APT
+- Package definitions for Signal K, OpenCPN, Grafana, InfluxDB, AvNav
+- Automated container deployment via Debian packages
 
 ### Installation
 
@@ -120,9 +117,8 @@ This is the source code release. For Debian packages, see [apt.hatlabs.fi](https
 ### Development
 
 For development setup and build commands, see:
-- [README.md](https://github.com/hatlabs/cockpit-apt/blob/main/README.md) - Installation and usage
-- [CLAUDE.md](https://github.com/hatlabs/cockpit-apt/blob/main/CLAUDE.md) - Development guide
-- \`./run help\` - Available build and development commands
+- [README.md](https://github.com/hatlabs/halos-marine-containers/blob/main/README.md) - Installation and usage
+- [CLAUDE.md](https://github.com/hatlabs/halos-marine-containers/blob/main/CLAUDE.md) - Development guide
 EOF
     ;;
 
