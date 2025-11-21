@@ -4,9 +4,9 @@ services:
   opencpn:
     image: ghcr.io/hatlabs/opencpn-docker:5.12.4
     container_name: opencpn
-    restart: unless-stopped
+    restart: no
     ports:
-      - "${OPENCPN_PORT:-3001}:3001"
+      - "${OPENCPN_PORT:-3002}:3001"
     volumes:
       - ${CONTAINER_DATA_ROOT:-/var/lib/container-apps}/opencpn-container/data/config:/config
     environment:

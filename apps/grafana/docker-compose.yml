@@ -4,9 +4,9 @@ services:
   grafana:
     image: grafana/grafana-oss:12.1.1
     container_name: grafana
-    restart: unless-stopped
+    restart: no
     ports:
-      - "${GRAFANA_PORT:-3000}:3000"
+      - "${GRAFANA_PORT:-3001}:3000"
     volumes:
       - ${CONTAINER_DATA_ROOT:-/var/lib/container-apps}/grafana-container/data:/var/lib/grafana
     networks:
