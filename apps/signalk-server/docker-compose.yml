@@ -1,13 +1,13 @@
 services:
   signalk-server:
-    image: docker pull cr.signalk.io/signalk/signalk-server:latest-24.x
+    image: cr.signalk.io/signalk/signalk-server:v2.18.0
     container_name: signalk-server
     restart: no
     network_mode: host
     environment:
       - NODE_NO_WARNINGS=1
     volumes:
-      - ${CONTAINER_DATA_ROOT}/dot-signalk:/home/node/.signalk
+      - ${CONTAINER_DATA_ROOT}/data:/home/node/.signalk
       - /dev:/dev
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
