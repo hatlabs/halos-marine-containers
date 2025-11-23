@@ -11,8 +11,6 @@ services:
     volumes:
       - ${CONTAINER_DATA_ROOT}/data:/home/node/.signalk
       - /dev:/dev
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/bin/docker:/usr/bin/docker
       - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
     privileged: true
     security_opt:
