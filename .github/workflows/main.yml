@@ -6,11 +6,12 @@ on:
 
 jobs:
   build-release:
-    uses: hatlabs/shared-workflows/.github/workflows/build-release.yml@main
+    uses: hatlabs/shared-workflows/.github/workflows/build-release.yml@feat/skip-if-version-released
     with:
       package-name: marine-container-store
       package-description: 'Marine container store and curated marine application definitions'
       apt-distro: trixie
       apt-component: main
+      skip-if-version-released: true
     secrets:
       APT_REPO_PAT: ${{ secrets.APT_REPO_PAT }}
