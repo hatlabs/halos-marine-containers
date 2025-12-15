@@ -20,3 +20,5 @@ services:
       - no-new-privileges:false
     cap_add:
       - NET_ADMIN
+    labels:
+      homarr.icon: /usr/share/pixmaps/marine-signalk-server-container.svg
