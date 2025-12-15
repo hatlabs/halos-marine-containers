@@ -24,6 +24,8 @@ services:
       - DOCKER_INFLUXD_QUERY_MEMORY_BYTES=20971520
     networks:
       - influxdb-net
+    labels:
+      homarr.icon: /usr/share/pixmaps/marine-influxdb-container.svg
 
 networks:
   influxdb-net:
