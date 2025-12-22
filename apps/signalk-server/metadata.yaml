@@ -34,6 +34,7 @@ web_ui:
   path: /
   port: 3000
   protocol: http
+  visible: true
 default_config:
   SIGNALK_PORT: "3000"
   SIGNALK_ADMIN_USER: admin

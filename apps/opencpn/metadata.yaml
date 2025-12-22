@@ -38,5 +38,6 @@ web_ui:
   path: /
   port: 3021
   protocol: https
+  visible: true
 default_config:
   OPENCPN_PORT: "3021"
