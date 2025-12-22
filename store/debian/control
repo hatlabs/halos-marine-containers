@@ -8,6 +8,7 @@ Homepage: https://github.com/hatlabs/halos-marine-containers
 
 Package: marine-container-store
 Architecture: all
+Tag: role::container-store
 Description: Marine container application store definition for Cockpit APT
  This package provides the store definition and branding for the Marine
  container application store, designed to work with cockpit-apt.
