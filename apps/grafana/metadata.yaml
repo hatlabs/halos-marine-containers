@@ -36,6 +36,7 @@ web_ui:
   path: /
   port: 3001
   protocol: http
+  visible: true
 default_config:
   GRAFANA_PORT: "3001"
   GRAFANA_ADMIN_USER: admin
