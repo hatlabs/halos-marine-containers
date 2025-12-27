@@ -111,10 +111,8 @@ class TestAppVersionParsing:
 
             # Expected formats:
             # - Semver: X.Y.Z or X.Y.Z-N (e.g., 2.17.2-1)
-            # - Semver with prerelease: X.Y.Z~prerelease-N (e.g., 2.19.0~beta.4-1)
             # - Date-based: YYYYMMDD-N (e.g., 20240520-1)
-            # Note: ~ is Debian's pre-release separator (sorts before anything)
-            semver_pattern = r"^\d+\.\d+\.\d+(~[a-zA-Z0-9.]+)?(-\d+)?$"
+            semver_pattern = r"^\d+\.\d+\.\d+(-\d+)?$"
             date_pattern = r"^\d{8}-\d+$"
 
             is_valid = re.match(semver_pattern, version) or re.match(
@@ -122,7 +120,7 @@ class TestAppVersionParsing:
             )
             assert is_valid, (
                 f"App {app_name} has invalid version format: {version} "
-                f"(expected semver like '2.17.2-1' or '2.19.0~beta.4-1' or date-based like '20240520-1')"
+                f"(expected semver like '2.17.2-1' or date-based like '20240520-1')"
             )
 
 
