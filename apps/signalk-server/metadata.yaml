@@ -54,6 +54,7 @@ default_config:
   SIGNALK_OIDC_ISSUER: "https://auth.${HALOS_DOMAIN}"
   SIGNALK_OIDC_CLIENT_ID: "signalk"
   SIGNALK_OIDC_CLIENT_SECRET: ""
+  SIGNALK_OIDC_REDIRECT_URI: "https://signalk.${HALOS_DOMAIN}/signalk/v1/auth/oidc/callback"
   SIGNALK_OIDC_PROVIDER_NAME: "HaLOS SSO"
   SIGNALK_OIDC_DEFAULT_PERMISSION: "readonly"
   SIGNALK_OIDC_ADMIN_GROUPS: "admins"
