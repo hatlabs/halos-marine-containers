@@ -57,7 +57,7 @@ OIDC_SECRET_FILE="${CONTAINER_DATA_ROOT}/oidc-secret"
 if [ ! -f "${OIDC_SECRET_FILE}" ]; then
     echo "Generating OIDC client secret..."
     openssl rand -hex 32 > "${OIDC_SECRET_FILE}"
-    chmod 644 "${OIDC_SECRET_FILE}"
+    chmod 600 "${OIDC_SECRET_FILE}"
     echo "OIDC client secret stored in ${OIDC_SECRET_FILE}"
 fi
 
@@ -70,6 +70,7 @@ SIGNALK_OIDC_CLIENT_SECRET=$(cat "${OIDC_SECRET_FILE}")
 SIGNALK_OIDC_ISSUER=https://auth.${HALOS_DOMAIN}
 SIGNALK_OIDC_REDIRECT_URI=https://signalk.${HALOS_DOMAIN}/signalk/v1/auth/oidc/callback
 EOF
+chmod 600 "${RUNTIME_ENV_DIR}/runtime.env"
 
 # Install OIDC client snippet for Authelia
 OIDC_CLIENTS_DIR="/etc/halos/oidc-clients.d"
