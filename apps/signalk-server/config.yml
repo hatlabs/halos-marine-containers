@@ -63,13 +63,6 @@ groups:
           - admin
         description: Default permission level for new OIDC users
 
-      - id: SIGNALK_OIDC_AUTO_CREATE_USERS
-        label: Auto-Create Users
-        type: boolean
-        default: true
-        required: false
-        description: Automatically create Signal K users for OIDC logins
-
       - id: SIGNALK_OIDC_ADMIN_GROUPS
         label: Admin Groups
         type: string

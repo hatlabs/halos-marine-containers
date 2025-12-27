@@ -17,9 +17,9 @@ if [ ! -f "${SECURITY_FILE}" ]; then
     # Generate a random password (32 character hex string)
     ADMIN_PASSWORD=$(openssl rand -hex 16)
 
-    # Hash the password using Python bcrypt
+    # Hash the password using Python bcrypt (via stdin for robustness)
     # python3-bcrypt is a dependency of the package
-    HASHED_PASSWORD=$(python3 -c "import bcrypt; print(bcrypt.hashpw(b'${ADMIN_PASSWORD}', bcrypt.gensalt()).decode())")
+    HASHED_PASSWORD=$(printf '%s' "${ADMIN_PASSWORD}" | python3 -c "import sys, bcrypt; print(bcrypt.hashpw(sys.stdin.buffer.read(), bcrypt.gensalt()).decode())")
 
     # Generate a secret key for JWT tokens
     SECRET_KEY=$(openssl rand -hex 32)
