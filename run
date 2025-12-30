@@ -251,13 +251,6 @@ function build {
   #@ Category: Build
   echo "Building all container packages..."
 
-  # Require HALOS_HOSTNAME for registry generation
-  if [[ -z "${HALOS_HOSTNAME:-}" ]]; then
-    echo "ERROR: HALOS_HOSTNAME environment variable is required."
-    echo "Example: HALOS_HOSTNAME=halos.local ./run build"
-    return 1
-  fi
-
   # Ensure Docker image exists
   if ! docker image inspect "$DOCKER_IMAGE" &>/dev/null; then
     echo "Docker image not found. Building..."
@@ -265,9 +258,16 @@ function build {
   fi
 
   # Run build in Docker container
-  docker run --rm -v "$(pwd):/workspace" \
-    -e HALOS_HOSTNAME="$HALOS_HOSTNAME" \
+  # CONTAINER_TOOLS_REF can specify a git ref for container-packaging-tools
+  # CONTAINER_TOOLS_PATH can specify a local path to mount (for development)
+  local mount_opts="-v $(pwd):/workspace"
+  if [[ -n "${CONTAINER_TOOLS_PATH:-}" ]]; then
+    mount_opts="$mount_opts -v $CONTAINER_TOOLS_PATH:/container-tools"
+  fi
+
+  docker run --rm $mount_opts \
     -e CONTAINER_TOOLS_REF="${CONTAINER_TOOLS_REF:-}" \
+    -e CONTAINER_TOOLS_PATH="${CONTAINER_TOOLS_PATH:+/container-tools}" \
     "$DOCKER_IMAGE" \
     bash -c "cd /workspace && ./tools/build-all.sh"
 }
