@@ -82,7 +82,12 @@ ${CHANGELOG}
 
 ### Installation
 
-This is the source code release. For Debian packages, see [apt.hatlabs.fi](https://github.com/hatlabs/apt.hatlabs.fi).
+Built Debian packages are attached to this release and available from [apt.hatlabs.fi](https://github.com/hatlabs/apt.hatlabs.fi):
+
+\`\`\`bash
+sudo apt update
+sudo apt install marine-container-store
+\`\`\`
 
 ### Development
 
@@ -112,7 +117,12 @@ ${CHANGELOG}
 
 ### Installation
 
-This is the source code release. For Debian packages, see [apt.hatlabs.fi](https://github.com/hatlabs/apt.hatlabs.fi).
+Built Debian packages are attached to this release and available from [apt.hatlabs.fi](https://github.com/hatlabs/apt.hatlabs.fi):
+
+\`\`\`bash
+sudo apt update
+sudo apt install marine-container-store
+\`\`\`
 
 ### Development
 
