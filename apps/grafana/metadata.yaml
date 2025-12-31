@@ -30,7 +30,7 @@ architecture: all
 depends:
   - docker-ce (>= 20.10) | docker.io (>= 20.10)
 recommends:
-  - influxdb-container
+  - marine-influxdb-container
 web_ui:
   enabled: true
   path: /
