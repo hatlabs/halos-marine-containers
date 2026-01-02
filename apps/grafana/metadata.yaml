@@ -40,7 +40,7 @@ web_ui:
 routing:
   subdomain: grafana
   auth:
-    mode: oidc
+    mode: none  # Grafana handles OAuth natively via prestart.sh OIDC registration
 layout:
   priority: 50
   width: 2
