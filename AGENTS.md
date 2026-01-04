@@ -204,6 +204,17 @@ Test single sign-on session sharing between Authelia and Signal K:
 
 This specifically tests that a user who is already authenticated with Authelia (e.g., from Homarr) can access Signal K without re-authenticating.
 
+### Authentication Negative Tests
+
+For testing that invalid authentication attempts are properly rejected (malformed tokens, expired tokens, OIDC callback validation, etc.), use the generic test script in the signalk-server repository:
+
+```bash
+# From the signalk-server directory
+./tools/test-auth-negative.sh -u https://signalk.myhostname.local -k -v
+
+# See signalk-server/tools/test-auth-negative.sh --help for options
+```
+
 ## Related
 
 - **Parent**: [../AGENTS.md](../AGENTS.md) - Workspace documentation
