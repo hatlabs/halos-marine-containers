@@ -103,6 +103,20 @@ EOF
     echo "NOTE: Restart Authelia to pick up the new OIDC client"
 fi
 
+# Create settings.json with reverse proxy settings if it doesn't exist
+# Signal K runs behind Traefik, so we need ssl=false and trustProxy=true
+SETTINGS_FILE="${SIGNALK_DATA}/settings.json"
+if [ ! -f "${SETTINGS_FILE}" ]; then
+    echo "Creating settings.json with reverse proxy settings..."
+    cat > "${SETTINGS_FILE}" << EOF
+{
+  "ssl": false,
+  "trustProxy": true
+}
+EOF
+    chown 1000:1000 "${SETTINGS_FILE}"
+fi
+
 # Ensure data directory is owned by node user (UID 1000)
 # The container runs as node:node, but prestart runs as root
 chown -R 1000:1000 "${CONTAINER_DATA_ROOT}"
