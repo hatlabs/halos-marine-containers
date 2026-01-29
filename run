@@ -128,7 +128,7 @@ function bump-version {
 function bump-store {
   #@ Bump store package version (store/debian/changelog)
   #@ Category: Version
-  local bump_type="$1"
+  local bump_type="${1:-}"
 
   if [[ ! "$bump_type" =~ ^(patch|minor|major)$ ]]; then
     echo "Usage: ./run bump-store [patch|minor|major]"
@@ -168,15 +168,18 @@ marine-container-store (${new_version}-1) stable; urgency=medium
 
   * Version bump to ${new_version}
 
- -- Hat Labs <info@hatlabs.fi>  $(date '+%a, %d %b %Y %H:%M:%S %z')
+ -- Hat Labs <info@hatlabs.fi>  $(LC_ALL=C date '+%a, %d %b %Y %H:%M:%S %z')
 
 CHANGELOG
   cat store/debian/changelog >> "$temp_file"
   mv "$temp_file" store/debian/changelog
 
+  # Commit the changelog update
+  git add store/debian/changelog
+  git commit -m "chore(store): bump to ${new_version}-1"
+
   echo "✅ Store package version bumped to ${new_version}-1"
-  echo ""
-  echo "⚠️  Don't forget to edit store/debian/changelog to add details about what changed!"
+  echo "Push with: git push"
 }
 
 function list-versions {
