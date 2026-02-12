@@ -73,6 +73,8 @@ RUNTIME_ENV_DIR="/run/container-apps/marine-signalk-server-container"
 mkdir -p "${RUNTIME_ENV_DIR}"
 cat > "${RUNTIME_ENV_DIR}/runtime.env" << EOF
 HALOS_DOMAIN=${HALOS_DOMAIN}
+EXTERNALHOST=signalk.${HALOS_DOMAIN}
+EXTERNALPORT=443
 SIGNALK_OIDC_CLIENT_SECRET=$(cat "${OIDC_SECRET_FILE}")
 SIGNALK_OIDC_ISSUER=https://auth.${HALOS_DOMAIN}
 SIGNALK_OIDC_REDIRECT_URI=https://signalk.${HALOS_DOMAIN}/signalk/v1/auth/oidc/callback

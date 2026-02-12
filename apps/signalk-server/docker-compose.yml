@@ -14,6 +14,8 @@ services:
       - "${HALOS_DOMAIN}:127.0.0.1"
       - "signalk.${HALOS_DOMAIN}:127.0.0.1"
     environment:
+      - EXTERNALHOST=${EXTERNALHOST:-}
+      - EXTERNALPORT=${EXTERNALPORT:-}
       - NODE_NO_WARNINGS=1
       - NODE_TLS_REJECT_UNAUTHORIZED=0
       - SIGNALK_OIDC_ENABLED=${SIGNALK_OIDC_ENABLED:-false}
