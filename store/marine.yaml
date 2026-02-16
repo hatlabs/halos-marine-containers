@@ -9,7 +9,7 @@ icon: /usr/share/container-stores/marine/icon.svg
 filters:
   # Repository origins (from APT Release file "Origin:" field)
   include_origins:
-    - "Hat Labs"
+    - "HaLOS"
 
   # Packages with marine tags
   include_tags:
